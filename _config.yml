@@ -5,9 +5,9 @@ title                    : "你的名字 | 个人主页"
 title_separator          : "-"
 name                     : "你的名字"
 description              : "你的学术个人简历 / 个人主页"
-url                      : "https://yourusername.github.io"
+url                      : "https://dreamtes.github.io"
 baseurl                  : ""
-repository               : "yourusername/yourusername.github.io"
+repository               : "DreamTes/dreamtes.github.io"
 
 # Author Profile
 author:
@@ -25,7 +25,7 @@ author:
   arxiv            : 
   
   # Social/Dev Links
-  github           : "yourusername"
+  github           : "DreamTes"
   linkedin         : "yourusername"
   twitter          : 
 
