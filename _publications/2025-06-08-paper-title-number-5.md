@@ -6,7 +6,7 @@ permalink: /publication/2024-02-17-paper-title-number-4
 excerpt: "This paper is about a famous math equation."
 date: 2024-02-17
 venue: "IEEE TPAMI"
-paperurl: "https://academicpages.github.io/files/paper3.pdf"
+paperurl: "/files/paper3.pdf"
 codeurl: ""
 authors: "Yulan Guo, Longguang Wang, Wendong Mao, Xiaoyu Dong, **你的名字**, Li Liu, Wei An."
 teaser: "test_image.png"

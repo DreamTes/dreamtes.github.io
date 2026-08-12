@@ -5,30 +5,25 @@ layout: compress
 {% include base_path %}
 
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
+<html lang="{{ site.locale | slice: 0,2 }}">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
   </head>
 
   <body>
-
-    {% include browser-upgrade.html %}
+    <a class="skip-link" href="#main-content">Skip to content</a>
     {% include masthead.html %}
-    <button id="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
-      <i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true"></i>
-    </button>
 
     {{ content }}
 
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
+    <footer class="site-footer">
+      <div class="site-container site-footer__inner">
         {% include footer.html %}
-      </footer>
-    </div>
+      </div>
+    </footer>
 
+    {% include footer/custom.html %}
     {% include scripts.html %}
-
   </body>
 </html>

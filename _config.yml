@@ -1,48 +1,33 @@
 # Site Settings
 locale: "zh-CN"
 site_theme: "default" # "default", "air", "sunrise", "mint", "dirt", "contrast"
-title: "你的名字 | 个人主页"
+title: "DreamTes"
 title_separator: "-"
-name: "你的名字"
-description: "你的学术个人简历 / 个人主页"
+name: "DreamTes"
+description: "Research, publications, and notes."
 url: "https://dreamtes.github.io"
 baseurl: ""
 repository: "DreamTes/dreamtes.github.io"
 
 # Author Profile
 author:
-  avatar: "profile.png"
-  name: "你的名字"
-  bio: "你的职位 / 研究方向"
-  location: "城市, 国家"
-  employer: "所属大学/机构"
-  email: "youremail@example.com"
+  avatar:
+  name: "DreamTes"
+  bio: "Researcher"
+  location:
+  employer:
+  email:
 
   # Academic Links
-  googlescholar: "https://scholar.google.com/citations?user=..."
-  orcid: "https://orcid.org/0000-..."
+  googlescholar:
+  orcid:
   researchgate:
   arxiv:
 
   # Social/Dev Links
   github: "DreamTes"
-  linkedin: "yourusername"
+  linkedin:
   twitter:
-
-# Content Settings
-publication_category:
-  books:
-    title: "Books"
-  manuscripts:
-    title: "Journal Articles"
-  conferences:
-    title: "Conference Papers"
-  category1:
-    title: "Category 1"
-  category2:
-    title: "Category 2"
-  category3:
-    title: "Category 3"
 
 include:
   - .htaccess
@@ -75,20 +60,20 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
-      share: true
+      author_profile: false
+      share: false
   - scope:
       path: ""
       type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false
   - scope:
       path: ""
       type: publications
     values:
       layout: single
-      author_profile: true
+      author_profile: false
 
 # Conversion/Processing
 markdown: kramdown
@@ -96,6 +81,7 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+future: false
 
 kramdown:
   input: GFM

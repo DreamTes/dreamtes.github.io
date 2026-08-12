@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+<main id="main-content" class="site-main site-main--home">
+  <div class="content-shell">
+    <section class="profile-intro{% unless site.author.avatar %} profile-intro--text-only{% endunless %}" aria-labelledby="profile-name">
+      <div class="profile-intro__copy">
+        <p class="eyebrow">Academic homepage</p>
+        <h1 id="profile-name">{{ site.author.name }}</h1>
+        <p class="profile-role">{{ site.author.bio }}</p>
+        {% if site.author.employer or site.author.location %}
+          <p class="profile-affiliation">
+            {{ site.author.employer }}
+            {% if site.author.employer and site.author.location %}<span aria-hidden="true"> · </span>{% endif %}
+            {{ site.author.location }}
+          </p>
+        {% endif %}
+
+        <nav class="profile-links" aria-label="Academic and social profiles">
+          {% if site.author.email and site.author.email != empty %}<a href="mailto:{{ site.author.email }}">Email</a>{% endif %}
+          {% if site.author.googlescholar and site.author.googlescholar != empty %}<a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
+          {% if site.author.orcid and site.author.orcid != empty %}<a href="{{ site.author.orcid }}">ORCID</a>{% endif %}
+          {% if site.author.github and site.author.github != empty %}<a href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
+          {% if site.author.linkedin and site.author.linkedin != empty %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a>{% endif %}
+        </nav>
+      </div>
+
+      {% if site.author.avatar %}
+        <figure class="profile-photo">
+          <img src="{% if site.author.avatar contains '://' %}{{ site.author.avatar }}{% else %}{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}{% endif %}" alt="Portrait of {{ site.author.name }}" fetchpriority="high">
+        </figure>
+      {% endif %}
+    </section>
+
+    <div class="home-copy">
+      {{ content }}
+    </div>
+
+    {% assign selected_publications = site.publications | where: "selected", true | sort: "date" | reverse %}
+    {% if selected_publications.size > 0 %}
+      <section class="home-section" aria-labelledby="selected-publications">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Research output</p>
+            <h2 id="selected-publications">Selected publications</h2>
+          </div>
+          <a class="section-link" href="{{ base_path }}/publications/">View all</a>
+        </div>
+
+        <div class="publication-list">
+          {% for post in selected_publications limit: 3 %}
+            {% include publication-item.html post=post %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </div>
+</main>

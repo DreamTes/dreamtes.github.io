@@ -1,0 +1,34 @@
+{% assign publication = include.post %}
+{% include base_path %}
+
+<article class="publication-item">
+  {% if publication.teaser %}
+    <a class="publication-item__teaser" href="{% if publication.paperurl and publication.paperurl != empty %}{{ publication.paperurl }}{% else %}{{ publication.url | prepend: base_path }}{% endif %}" aria-label="{{ publication.title | strip_html }}">
+      <img src="{% if publication.teaser contains '://' %}{{ publication.teaser }}{% else %}{{ publication.teaser | prepend: '/images/' | prepend: base_path }}{% endif %}" alt="" loading="lazy">
+    </a>
+  {% endif %}
+
+  <div class="publication-item__body">
+    <p class="publication-item__year">{{ publication.date | date: "%Y" }}</p>
+    <h3>
+      <a href="{% if publication.paperurl and publication.paperurl != empty %}{{ publication.paperurl }}{% else %}{{ publication.url | prepend: base_path }}{% endif %}">
+        {{ publication.title | markdownify | remove: "<p>" | remove: "</p>" }}
+      </a>
+    </h3>
+
+    {% if publication.authors %}
+      <p class="publication-item__authors">{{ publication.authors | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+    {% endif %}
+
+    {% if publication.venue %}<p class="publication-item__venue">{{ publication.venue }}</p>{% endif %}
+
+    {% if publication.paperurl or publication.codeurl or publication.slidesurl or publication.bibtexurl %}
+      <nav class="publication-item__links" aria-label="Links for {{ publication.title | strip_html }}">
+        {% if publication.paperurl and publication.paperurl != empty %}<a href="{{ publication.paperurl }}">Paper</a>{% endif %}
+        {% if publication.codeurl and publication.codeurl != empty %}<a href="{{ publication.codeurl }}">Code</a>{% endif %}
+        {% if publication.slidesurl and publication.slidesurl != empty %}<a href="{{ publication.slidesurl }}">Slides</a>{% endif %}
+        {% if publication.bibtexurl and publication.bibtexurl != empty %}<a href="{{ publication.bibtexurl }}">BibTeX</a>{% endif %}
+      </nav>
+    {% endif %}
+  </div>
+</article>
