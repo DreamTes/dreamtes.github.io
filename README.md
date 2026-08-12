@@ -9,9 +9,10 @@
 ## 当前结构
 
 - `_config.yml`：站点全局配置（标题、作者信息、社交链接）
-- `_data/navigation.yml`：顶部导航（Publications / Blog Posts）
+- `_data/navigation.yml`：顶部导航（About / Publications）
 - `_pages/`：页面入口（首页、论文汇总、博客归档、404、sitemap）
 - `_publications/`：论文条目（每篇一个 Markdown 文件）
+- `_data/news.yml`：首页 News 更新列表
 - `_posts/`：博客文章
 - `_includes/`、`_layouts/`、`_sass/`、`assets/`：主题模板与样式脚本
 - `files/`：附件下载（PDF、补充材料等）
@@ -20,9 +21,13 @@
 ## 内容维护
 
 - 新增论文：在 `_publications/` 新建 `YYYY-MM-DD-title.md`
+- 首页代表作：在论文 front matter 中添加 `selected: true`
+- 更新 News：编辑 `_data/news.yml`，最新内容放在最上方
 - 新增博客：在 `_posts/` 新建 `YYYY-MM-DD-title.md`
 - 上传附件：放入 `files/`，在对应 Markdown 里引用链接
 - 调整菜单：编辑 `_data/navigation.yml`
+
+当前首页新闻和论文包含带 `placeholder: true` 的示例内容。替换为真实资料后，删除该字段即可移除“示例”标识。头像替换后，同时将 `_config.yml` 中的 `avatar_placeholder` 改为 `false`。
 
 ## 基础配置
 

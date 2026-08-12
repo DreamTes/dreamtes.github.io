@@ -1,0 +1,17 @@
+- date: "2026-08"
+  text: "论文《Learning Robust 3D Representations from Sparse Observations》被 ACM MM 2026 接收。"
+  link: "/publications/"
+  placeholder: true
+
+- date: "2026-06"
+  text: "我们发布了 Structured Visual Tokens 项目的论文、代码和实验材料。"
+  link: "/publications/"
+  placeholder: true
+
+- date: "2026-03"
+  text: "受邀在 Vision & Learning Seminar 分享近期关于可靠多模态学习的工作。"
+  placeholder: true
+
+- date: "2026-01"
+  text: "开始一项关于开放世界识别与不确定性建模的新研究。"
+  placeholder: true

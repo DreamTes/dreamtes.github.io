@@ -237,6 +237,7 @@ select {
 }
 
 .profile-photo {
+  position: relative;
   margin: 0;
   overflow: hidden;
   aspect-ratio: 1;
@@ -251,6 +252,22 @@ select {
   object-fit: cover;
 }
 
+.profile-photo figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  margin: 0;
+  padding: 4px 8px;
+  color: #fff;
+  background: rgba(23, 25, 29, 0.78);
+  border-radius: 2px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .home-section {
   padding: 72px 0;
   border-bottom: 1px solid var(--line);
@@ -259,6 +276,68 @@ select {
 .home-section:last-child {
   border-bottom: 0;
   padding-bottom: 0;
+}
+
+.home-section--news {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+}
+
+.home-section--news .section-heading {
+  display: block;
+  margin: 0;
+}
+
+.news-list {
+  border-top: 1px solid var(--line);
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 20px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-item time {
+  padding-top: 2px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.news-item p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+.news-item a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.news-item a:hover {
+  color: var(--accent);
+}
+
+.placeholder-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  color: #765b18;
+  background: #fff8df;
+  border: 1px solid #eadca8;
+  border-radius: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  vertical-align: 0.14em;
 }
 
 .section-heading {
@@ -647,6 +726,11 @@ select {
     padding: 52px 0;
   }
 
+  .home-section--news {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 28px;
+  }
+
   .research-line {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -683,6 +767,19 @@ select {
   .profile-intro {
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  .home-section--news {
+    display: block;
+  }
+
+  .home-section--news .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .news-item {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 14px;
   }
 
   .profile-photo {

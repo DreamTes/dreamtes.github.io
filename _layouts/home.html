@@ -29,11 +29,35 @@ layout: default
       </div>
 
       {% if site.author.avatar %}
-        <figure class="profile-photo">
+        <figure class="profile-photo{% if site.author.avatar_placeholder %} is-placeholder{% endif %}">
           <img src="{% if site.author.avatar contains '://' %}{{ site.author.avatar }}{% else %}{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}{% endif %}" alt="Portrait of {{ site.author.name }}" fetchpriority="high">
+          {% if site.author.avatar_placeholder %}<figcaption>Photo placeholder</figcaption>{% endif %}
         </figure>
       {% endif %}
     </section>
+
+    {% if site.data.news %}
+      <section class="home-section home-section--news" aria-labelledby="news-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Latest updates</p>
+            <h2 id="news-heading">News</h2>
+          </div>
+        </div>
+
+        <div class="news-list">
+          {% for item in site.data.news limit: 5 %}
+            <article class="news-item">
+              <time datetime="{{ item.date }}">{{ item.date | replace: "-", "." }}</time>
+              <p>
+                {% if item.link %}<a href="{{ item.link | prepend: base_path }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}
+                {% if item.placeholder %}<span class="placeholder-badge">示例</span>{% endif %}
+              </p>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
 
     <div class="home-copy">
       {{ content }}

@@ -11,7 +11,8 @@ repository: "DreamTes/dreamtes.github.io"
 
 # Author Profile
 author:
-  avatar:
+  avatar: "profile.png"
+  avatar_placeholder: true
   name: "DreamTes"
   bio: "Researcher"
   location:
